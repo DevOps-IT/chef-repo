@@ -16,12 +16,8 @@ class Chef
         log "Deploying from artifactory repo #{af_repository}"
         artifactory=data_bag_item('common','artifactory')
 
-        #if( af_repository == 'DemoMavenRepo')
           artifact_version= version == 'latest' ? get_artifactory_latest_version(artifactory['url'], "#{af_repository}", group_id, artifact_id, extension) : version
           artifact_war= get_artifactory_latest_war(artifactory['url'], "#{af_repository}", group_id, artifact_id, extension)
-        #else
-        #  artifact_version=get_artifactory_release_version(artifactory['url'], "#{af_repository}", group_id, artifact_id, extension,version )
-        #end
         classifier_str = ""
         if !classifier.nil?
           classifier_str = "-#{classifier}"
