@@ -1,0 +1,4 @@
+source 'https://supermarket.chef.io'
+
+cookbook 'env_base', path: '../env_base'
+metadata
